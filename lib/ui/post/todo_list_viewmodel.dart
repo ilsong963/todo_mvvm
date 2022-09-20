@@ -14,14 +14,14 @@ class TodoListViewModel with ChangeNotifier {
     _loadItems();
   }
 
-  Future<void> _loadItems() async {
-    _items = await _todoRepository.getTodos();
+  void _loadItems() async {
+    _items =  _todoRepository.getTodos();
     notifyListeners();
   }
 
   Future<void> saveItems(Todo todo) async {
     _items.add(todo);
-    _todoRepository.setTodos(_items);
+    _todoRepository.setTodos(todo);
     notifyListeners();
   }
 }

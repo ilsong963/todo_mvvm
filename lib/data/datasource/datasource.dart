@@ -3,14 +3,13 @@ import 'package:hive_flutter/adapters.dart';
 import '../model/todo_model.dart';
 
 class DataSource {
-  Future<List<Todo>> getTodos() async {
-    final box = Hive.box('todo');
-
-    return box.get('todoList', defaultValue: <Todo>[]);
+  List<Todo> getTodos()  {
+    var box = Hive.box<Todo>('Todo');
+    return box.values.toList();
   }
 
-  Future<void> setTodos(List<Todo> todoList) async {
-    final box = Hive.box('todo');
-    box.put('todoList', todoList);
+  Future<void> setTodos(Todo todoList) async {
+    var box = Hive.box<Todo>('Todo');
+    box.put('Todo', todoList);
   }
 }

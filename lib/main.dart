@@ -7,6 +7,7 @@ import 'data/model/todo_model.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(TodoAdapter()); // add here
-  await Hive.openBox('todo');
+  await Hive.openBox<Todo>('Todo');
+
   runApp(const MaterialApp(home: const TodoListPage()));
 }
