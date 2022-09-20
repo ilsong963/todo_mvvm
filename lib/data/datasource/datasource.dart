@@ -10,6 +10,6 @@ class DataSource {
 
   Future<void> setTodos(Todo todoList) async {
     var box = Hive.box<Todo>('Todo');
-    box.put('Todo', todoList);
+    box.add(todoList);
   }
 }
